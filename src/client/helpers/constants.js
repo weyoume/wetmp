@@ -1,5 +1,5 @@
 export const knownDomains = [
-  'localhost',
+  '13.54.40.160',
   'busy.org',
   'staging.busy.org',
   'steemit.com',

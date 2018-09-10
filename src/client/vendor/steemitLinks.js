@@ -19,10 +19,10 @@ const urlSet = ({ domain = domainPath, path } = {}) =>
 */
 export const any = (flags = 'i') => new RegExp(urlSet(), flags);
 export const local = (flags = 'i') =>
-  new RegExp(urlSet({ domain: '(?:localhost|(?:.*\\.)?steemit.com|(?:.*\\.)?busy.org)' }), flags);
+  new RegExp(urlSet({ domain: '(?:13.54.40.160|(?:.*\\.)?steemit.com|(?:.*\\.)?busy.org)' }), flags);
 export const remote = (flags = 'i') =>
   new RegExp(
-    urlSet({ domain: `(?!localhost|(?:.*\\.)?steemit.com|(?:.*\\.)?busy.org)${domainPath}` }),
+    urlSet({ domain: `(?!13.54.40.160|(?:.*\\.)?steemit.com|(?:.*\\.)?busy.org)${domainPath}` }),
     flags,
   );
 export const youTube = (flags = 'i') =>
@@ -46,7 +46,7 @@ export default {
 };
 
 // Original regex
-// const urlRegex = '^(?!mailto:)(?:(?:http|https|ftp)://)(?:\\S+(?::\\S*)?@)?(?:(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[0-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,})))|localhost)(?::\\d{2,5})?(?:(/|\\?|#)[^\\s]*)?$';
+// const urlRegex = '^(?!mailto:)(?:(?:http|https|ftp)://)(?:\\S+(?::\\S*)?@)?(?:(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[0-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,})))|13.54.40.160)(?::\\d{2,5})?(?:(/|\\?|#)[^\\s]*)?$';
 
 // About performance
 // Using exec on the same regex object requires a new regex to be created and compile for each text (ex: post).  Instead replace can be used `body.replace(remoteRe, l => {` discarding the result for better performance`}).  Re-compiling is a chrome bottleneck but did not effect nodejs.
